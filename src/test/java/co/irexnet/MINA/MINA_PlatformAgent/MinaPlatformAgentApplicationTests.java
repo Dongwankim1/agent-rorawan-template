@@ -26,7 +26,16 @@ class MinaPlatformAgentApplicationTests {
 	
 	 @Autowired
 	 EfpdService efpdService;
-	
+	 
+	 
+	 @Test
+	public void contextLoads() {
+		String hexText = "021A000114991505A00002000107D00BB80FA00834089808FC057800D1D3";
+		 byte[] bytes = new java.math.BigInteger(hexText, 16).toByteArray();
+
+		 System.out.println(bytes);
+			
+		}
 	 
 	 
 	 /*

@@ -12,10 +12,6 @@ import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 @EnableScheduling
 public class MinaPlatformAgentApplication extends SpringBootServletInitializer {
 	
-	 @Bean
-	public ServerEndpointExporter serverEndpointExporter() {
-	        return new ServerEndpointExporter();
-	    }
 	 
 	public static void main(String[] args) {
 		SpringApplication.run(MinaPlatformAgentApplication.class, args);
@@ -25,4 +21,11 @@ public class MinaPlatformAgentApplication extends SpringBootServletInitializer {
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
 		return builder.sources(MinaPlatformAgentApplication.class);
 	}
+	
+	
+	@Bean
+	public ServerEndpointExporter serverEndpointExporter() {
+		return new ServerEndpointExporter();
+	}
+	
 }
