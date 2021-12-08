@@ -81,16 +81,17 @@ public class CallbackController
             	if("C".equals(deviceType.getType())) {
             		Map<String,String> stateMap = new HashMap<String, String>();
             		
-            		stateMap.put("powerState", "0");
-            		stateMap.put("transState", "0");
-            		stateMap.put("funcCode", "5");
-            		resultState = Conversion.completeSendMessage(0x00,Conversion.getAddtoByteLength(Conversion.getToSendOfState(stateMap)));
             		CclassDeviceInfoEntity info  =null;
             		try {
             			info = efpdService.selectOneCclassDeviceInfo(nodeId);
     				} catch (Exception e) {
     					log.error("Error is {}",nodeId);
     				}
+            		stateMap.put("powerState", "1");
+            		stateMap.put("transState", "0");
+            		stateMap.put("funcCode", "5");
+            		
+            		resultState = Conversion.completeSendMessage(0x00,Conversion.getAddtoByteLength(Conversion.getToSendOfState(stateMap)));
             		
             		ObjectMapper oMapper = new ObjectMapper();
             		Map map = oMapper.convertValue(info, Map.class);
@@ -104,10 +105,6 @@ public class CallbackController
             	}else {
             		Map<String,String> stateMap = new HashMap<String, String>();
             		
-            		stateMap.put("powerState", "0");
-            		stateMap.put("transState", "0");
-            		stateMap.put("funcCode", "5");
-            		resultState = Conversion.completeSendMessage(0x00,Conversion.getAddtoByteLength(Conversion.getToSendOfState(stateMap)));
             		
             		AclassDeviceInfoEntity info = null;
             		
@@ -116,6 +113,12 @@ public class CallbackController
     				} catch (Exception e) {
     					log.error("Error is {}",nodeId);
     				}
+            	
+            		stateMap.put("powerState", "0");
+            		stateMap.put("transState", "0");
+            		stateMap.put("funcCode", "5");
+         
+            		resultState = Conversion.completeSendMessage(0x00,Conversion.getAddtoByteLength(Conversion.getToSendOfState(stateMap)));
             		
             		ObjectMapper oMapper = new ObjectMapper();
             		Map map = oMapper.convertValue(info, Map.class);
@@ -233,16 +236,20 @@ public class CallbackController
 		        	if("C".equals(deviceType.getType())) {
 		        		Map<String,String> stateMap = new HashMap<String, String>();
 		        		
-		        		stateMap.put("powerState", "0");
-		        		stateMap.put("transState", "0");
-		        		stateMap.put("funcCode", "5");
-		        		resultState = Conversion.completeSendMessage(0x00,Conversion.getAddtoByteLength(Conversion.getToSendOfState(stateMap)));
+		        
 		        		CclassDeviceInfoEntity info  =null;
 		        		try {
 		        			info = efpdService.selectOneCclassDeviceInfo(nodeId);
 						} catch (Exception e) {
 							log.error("Error is {}",nodeId);
 						}
+		        	
+		        		
+		        		stateMap.put("powerState", "1");
+		        		stateMap.put("transState", "0");
+		        		stateMap.put("funcCode", "5");
+		        	
+		        		resultState = Conversion.completeSendMessage(0x00,Conversion.getAddtoByteLength(Conversion.getToSendOfState(stateMap)));
 		        		
 		        		ObjectMapper oMapper = new ObjectMapper();
 		        		Map map = oMapper.convertValue(info, Map.class);
@@ -256,10 +263,6 @@ public class CallbackController
 		        	}else if("A".equals(deviceType.getType())) {
 		        		Map<String,String> stateMap = new HashMap<String, String>();
 		        		
-		        		stateMap.put("powerState", "0");
-		        		stateMap.put("transState", "0");
-		        		stateMap.put("funcCode", "5");
-		        		resultState = Conversion.completeSendMessage(0x00,Conversion.getAddtoByteLength(Conversion.getToSendOfState(stateMap)));
 		        		
 		        		AclassDeviceInfoEntity info = null;
 		        		
@@ -268,6 +271,13 @@ public class CallbackController
 						} catch (Exception e) {
 							log.error("Error is {}",nodeId);
 						}
+		        
+		        		
+		        		stateMap.put("powerState", "0");
+		        		stateMap.put("transState", "0");
+		        		stateMap.put("funcCode", "5");
+		        
+		        		resultState = Conversion.completeSendMessage(0x00,Conversion.getAddtoByteLength(Conversion.getToSendOfState(stateMap)));
 		        		
 		        		ObjectMapper oMapper = new ObjectMapper();
 		        		Map map = oMapper.convertValue(info, Map.class);
@@ -317,6 +327,7 @@ public class CallbackController
 			        	
 		        		//socket�쟾�넚
 		        		JSONObject js = new JSONObject(map);
+		        		
 		                Websocket.sendMessageToAll(js.toJSONString());
 			        	if(map.get("div").equals("Aclass")) {
 			        		efpdService.saveAclassSensorData(map);
