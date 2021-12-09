@@ -1,0 +1,50 @@
+server:
+  port: 8099
+  socket-port: 8091
+
+logging:
+  file:
+    path: ./logs
+    max-history: 30
+    max-size: 10MB
+  level:
+    root: info
+    #org.apache.http: debug
+    org.apache.http: info
+  pattern:
+    console: "%d{HH:mm:ss.SSS} %-5level [%logger{36}:%L] - %msg%n"
+    file: '%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}} ${LOG_LEVEL_PATTERN:-%5p}
+      ${PID:- } --- [%t] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}'
+
+properties:
+  network_server:
+    period: 600000
+    token: 
+    uri: https://220.123.184.93
+    callback: 1.215.195.10
+  onem2m:
+    uri: https://220.123.184.93
+    csebase: ~/incse/base
+    poa: 1.215.195.10
+  service_oid:
+  - '0.2.481.1.1030201808241721.101.0.0'
+
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.0.106:3306/efpd?serverTimezone=UTC&characterEncoding=UTF-8
+    username:  
+    password: 
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      naming:
+        physical-strategy: co.irexnet.MINA.MINA_PlatformAgent.util.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        show_sql:true
+        format_sql:true
+        use_sql_comments:true

@@ -11,9 +11,9 @@ import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
 import co.irexnet.MINA.MINA_PlatformAgent.configure.EmbededTomcatConfiguration;
 
+
 @SpringBootApplication
 @EnableScheduling
-@Import(EmbededTomcatConfiguration.class)
 public class MinaPlatformAgentApplication extends SpringBootServletInitializer {
 	
 	 
