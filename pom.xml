@@ -8,12 +8,15 @@
 		<version>2.3.1.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>co.irexnet.MINA</groupId>
-	<artifactId>MINA_PlatformAgent</artifactId>
+	<groupId>co.agics.agent</groupId>
+	<artifactId>RORAWAN_AGENT</artifactId>
 	<version>0.0.6-RELEASE</version>
-	<name>MINA_PlatformAgent</name>
-	<description>MINA Platform Agent</description>
+	<name>RORAWAN_AGENT</name>
+	<description>RORAWAN_AGENT</description>
 	
+
+
+
 	
 	
 	<properties>
