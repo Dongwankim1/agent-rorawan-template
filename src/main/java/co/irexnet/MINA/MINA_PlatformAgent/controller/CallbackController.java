@@ -310,7 +310,7 @@ public class CallbackController
 		  	
 		        }else if(nCmd == 0) {
 		        	//설정 응답에 대한 resetflag 0 변경
-		        	if(decoded[4]==0x19) {
+		        	if(decoded[4]==0x19||decoded[4]==0x18) {
 		        		//check device type
 		            	DeviceEntity deviceType = efpdService.selectOneDeviceType(nodeId);
 		            	if(deviceType.getType().equals("C")) {
