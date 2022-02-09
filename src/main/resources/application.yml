@@ -1,6 +1,6 @@
 server:
-  port: 8099
-  socket-port: 8091
+  port: 8078
+  socket-port: 8077
 
 logging:
   file:
@@ -19,9 +19,9 @@ logging:
 properties:
   network_server:
     period: 600000
-    token: 
+    token: "asasdasd"
     uri: https://220.123.184.93
-    callback: 1.215.195.10
+    callback: http://localhost
   onem2m:
     uri: https://220.123.184.93
     csebase: ~/incse/base
@@ -35,14 +35,14 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://192.168.0.106:3306/efpd?serverTimezone=UTC&characterEncoding=UTF-8
-    username:  
-    password: 
+    username: efpd
+    password: efpd12!@
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
       naming:
-        physical-strategy: co.agics.agent.util.ImprovedNamingStrategy
+        physical-strategy: com.agent.util.ImprovedNamingStrategy
     properties:
       hibernate:
         show_sql:true

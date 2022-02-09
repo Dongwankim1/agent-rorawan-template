@@ -1,4 +1,4 @@
-package co.agics.agent;
+package com;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
-import co.irexnet.MINA.MINA_PlatformAgent.configure.EmbededTomcatConfiguration;
+import com.agent.configure.EmbededTomcatConfiguration;
 
 
 @SpringBootApplication
